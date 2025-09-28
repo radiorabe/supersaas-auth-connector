@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release-container:
+    uses: radiorabe/actions/.github/workflows/release-container.yaml@v0.36.0
+    with:
+      image: 'ghcr.io/radiorabe/supersaasauthconnector'
+      name: 'supersaasauthconnector'
+      display-name: 'SuperSaaS Auth Connector
+      tags: 'minimal rhel9 rabe s2i python supersaas oidc'
+  release-mkdocs:
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.36.0

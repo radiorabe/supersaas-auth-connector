@@ -1,0 +1,6 @@
+docs/
+tests/
+.github/
+ruff.toml
+mkdocs.yaml
+catalog-info.yaml

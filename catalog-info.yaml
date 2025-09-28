@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: supersaas-auth-connector
+  title: SuperSaaS Auth Connector
+  description: |
+    Bridge RaBe Accounts into SuperSaaS and create accounts in SuperSaas while doing so.
+  annotations:
+     github.com/project-slug: radiorabe/supersaas-auth-connector
+     backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  owner: it-reaktion
+  lifecycle: production
+  dependsOn:
+    - component:default/python-minimal
+    - component:default/s2i-python-minimal

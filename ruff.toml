@@ -1,0 +1,30 @@
+# [ruff](https://docs.astral.sh/ruff/) config
+
+[lint]
+select = [
+	"ALL"      # we let upstream decide our baseline, and we max it
+]
+ignore = [
+	"D203",    # we prefer blank-line-before-class (D211) for black compat
+	"D213",    # we prefer multi-line-summary-first-line (D212)
+	"COM812",  # ignore due to conflict with formatter
+	"ISC001",  # ignore due to conflict with formatter
+]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = [
+	"D",       # pydocstyle is optional for tests
+	"ANN",     # flake8-annotations are optional for tests
+	"S101",    # assert is allow in tests
+	"S105",    # tests may have hardcoded secrets
+	"S106",    # tests may have hardcoded passwords
+	"S108",    # /tmp is allowed in tests since it's expected to be mocked
+	"DTZ00",   # tests often run in UTC
+	"INP001",  # tests do not need a dunder init
+]
+"**/__init__.py" = [
+	"D104",    # dunder init does not need a docstring because it might be empty
+]
+"docs/gen_ref_pages.py" = [
+	"INP001",  # mkdocs does not need a dunder init
+]
