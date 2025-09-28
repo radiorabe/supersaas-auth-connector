@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"SuperSaaS Auth Connector","text":"<p>Create a user in SuperSaas and login them in once identified via OIDC.</p>"}]}
