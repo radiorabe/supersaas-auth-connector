@@ -11,6 +11,8 @@ SSO_SERVER_URL = config("SSO_SERVER_URL", default="https://sso.rabe.ch/auth/")
 SSO_REALM = config("SSO_REALM", default="rabe")
 SSO_CLIENT_ID = config("SSO_CLIENT_ID", default="supersaas-auth-connector")
 
+ERROR_REDIRECT_URL = config("ERROR_REDIRECT_URL", default="https://www.rabe.ch")
+
 SUPERSAAS_ACCOUNT_NAME = config("SUPERSAAS_ACCOUNT_NAME", default="RaBe")
 SUPERSAAS_API_TOKEN = config("SUPERSAAS_API_TOKEN", cast=Secret, default="")
 
