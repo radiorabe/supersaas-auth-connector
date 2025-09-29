@@ -1,6 +1,6 @@
 site_name: SuperSaas Auth Connector
 repo_url: https://github.com/radiorabe/supersaas-auth-connector
-repo_name: radiorabe/cat-page
+repo_name: radiorabe/supersaas-auth-connector
 
 theme:
   name: "material"

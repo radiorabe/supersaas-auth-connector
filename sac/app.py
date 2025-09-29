@@ -51,7 +51,7 @@ def _generate_supersaas_login_url(name: str) -> str:
     ).hexdigest()
 
     query_params = {
-        "account": "RaBe",
+        "account": settings.SUPERSAAS_ACCOUNT_NAME,
         "user[name]": name,
         "checksum": checksum,
     }
@@ -121,24 +121,13 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
         )
 
 
-def index(_: Request) -> Response:  # pragma: no cover
+def catchall_page(_: Request) -> Response:  # pragma: no cover
     """Redirect to /supersaas for user creation and redirection to SuperSaaS."""
-    return RedirectResponse(url="/supersaas")
-
-
-def oidc_callback(_: Request) -> Response:  # pragma: no cover
-    """Handle OIDC callback and redirect to /supersaas.
-
-    The actual handling is done in the authentication middleware.
-    """
     return RedirectResponse(url="/supersaas")
 
 
 def supersaas_redirect(request: Request) -> Response:
     """Create user in SuperSaaS if not exists and redirect to SuperSaaS login URL."""
-    if not hasattr(request.state, "user"):  # pragma: no cover
-        return RedirectResponse(url="/logout")
-
     name = request.state.user.get("email")
     _create_user(name=name, user_id=request.state.user.get("uid"))
     return RedirectResponse(url=_generate_supersaas_login_url(name))
@@ -147,8 +136,8 @@ def supersaas_redirect(request: Request) -> Response:
 app = Starlette(
     debug=settings.DEBUG,
     routes=[
-        Route("/", endpoint=index),
-        Route("/oidc/callback", endpoint=oidc_callback),
+        Route("/", endpoint=catchall_page),
+        Route("/oidc/callback", endpoint=catchall_page),
         Route("/supersaas", endpoint=supersaas_redirect),
     ],
 )
@@ -180,7 +169,7 @@ def main() -> None:  # pragma: no cover
         api_key=settings.SUPERSAAS_API_TOKEN,
         account_name=settings.SUPERSAAS_ACCOUNT_NAME,
     )
-    uvicorn.run(app)
+    uvicorn.run(app, host=settings.HOST, port=settings.PORT)
 
 
 if __name__ == "__main__":  # pragma: no cover
