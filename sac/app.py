@@ -76,7 +76,11 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
     async def dispatch(
         self, request: Request, call_next: RequestResponseEndpoint
     ) -> Response:
-        access_token = self._handle_oidc(request)
+        (access_token, error) = self._handle_oidc(request)
+
+        if error:
+            logger.error("Error during OIDC handling: %s", error)
+            return RedirectResponse(url=settings.ERROR_REDIRECT_URL)
 
         if not access_token:
             logger.warning("No access token found, redirecting to auth")
@@ -95,9 +99,13 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
             raise e from None
         return response
 
-    def _handle_oidc(self, request: Request) -> str:
+    def _handle_oidc(self, request: Request) -> tuple[str, str | None]:
         access_token: str = ""
         if request.url.path == "/oidc/callback":  # pragma: no cover
+            if "error" in request.query_params:
+                error = request.query_params["error"]
+                logger.error("Error returned from OIDC provider: %s", error)
+                return ("", error)
             access_token_response = self.kc.token(
                 grant_type="authorization_code",
                 code=request.query_params["code"],
@@ -108,7 +116,7 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
             )
             access_token = str(access_token_response["access_token"])
 
-        return access_token or str(request.session.get("access_token") or "")
+        return (access_token or str(request.session.get("access_token") or ""), None)
 
     def _auth(self) -> Response:
         return Response(
