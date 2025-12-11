@@ -38,3 +38,13 @@ def test_supersaas_no_consent(create_mock, userinfo_mock, oidc_mock):
     assert response.headers["Location"] == "https://www.rabe.ch"
     assert not userinfo_mock.called
     assert not create_mock.called
+
+
+def test_logout_redirect():
+    client = TestClient(app, follow_redirects=False)
+    response = client.get("/logout")
+    assert response.status_code == 307  # noqa: PLR2004
+    assert (
+        response.headers["Location"]
+        == "https://sso.rabe.ch/auth/realms/rabe/protocol/openid-connect/logout?redirect_uri=https%3A%2F%2Fwww.rabe.ch"
+    )

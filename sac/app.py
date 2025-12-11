@@ -82,6 +82,9 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
             logger.error("Error during OIDC handling: %s", error)
             return RedirectResponse(url=settings.ERROR_REDIRECT_URL)
 
+        if request.url.path == "/logout":
+            return await self._handle_next(request, call_next)
+
         if not access_token:
             logger.warning("No access token found, redirecting to auth")
             return self._auth()
@@ -93,11 +96,7 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
             request.session.pop("access_token", None)
             return self._auth()
 
-        try:
-            response = await call_next(request)
-        except BaseException as e:  # pragma: no cover
-            raise e from None
-        return response
+        return await self._handle_next(request, call_next)
 
     def _handle_oidc(self, request: Request) -> tuple[str, str | None]:
         access_token: str = ""
@@ -117,6 +116,15 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
             access_token = str(access_token_response["access_token"])
 
         return (access_token or str(request.session.get("access_token") or ""), None)
+
+    async def _handle_next(
+        self, request: Request, call_next: RequestResponseEndpoint
+    ) -> Response:
+        try:
+            response = await call_next(request)
+        except BaseException as e:  # pragma: no cover
+            raise e from None
+        return response
 
     def _auth(self) -> Response:
         return Response(
@@ -141,12 +149,18 @@ def supersaas_redirect(request: Request) -> Response:
     return RedirectResponse(url=_generate_supersaas_login_url(name))
 
 
+def logout_redirect(_: Request) -> Response:
+    """Logout user by redirecting to logout URL (front-channel logout)."""
+    return RedirectResponse(url=settings.LOGOUT_REDIRECT_URL)
+
+
 app = Starlette(
     debug=settings.DEBUG,
     routes=[
         Route("/", endpoint=catchall_page),
         Route("/oidc/callback", endpoint=catchall_page),
         Route("/supersaas", endpoint=supersaas_redirect),
+        Route("/logout", endpoint=logout_redirect),
     ],
 )
 
