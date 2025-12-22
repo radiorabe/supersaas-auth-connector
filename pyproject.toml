@@ -27,7 +27,7 @@ packages = [
 supersaas-auth-connector = 'sac.app:main'
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.19.0"
+mypy = "^1.19.1"
 pytest = "^9.0.2"
 pytest-cov = "^7.0.0"
 pytest-mypy = "^1.0.1"
