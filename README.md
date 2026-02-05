@@ -6,7 +6,7 @@ Create a user in [SuperSaas](https://www.supersaas.com/) and login them in once 
 * Tested with Keycloak 26
 * Creates users in SuperSaaS after identifying them via Keycloak
 * Forwards users to SuperSaaS once created
-* Supports triggering a front-channel login in Keycloak
+* Supports triggering a front-channel logout in Keycloak
 
 The aim is to allow convenient onboarding for users with access to Keycloak, while still allowing
 additional cloud-managed users in SuperSaaS itself as needed.
