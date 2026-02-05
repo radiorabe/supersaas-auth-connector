@@ -265,6 +265,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -281,6 +299,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -304,7 +396,127 @@
 
 
 <h1 id="supersaas-auth-connector">SuperSaaS Auth Connector</h1>
-<p>Create a user in SuperSaas and login them in once identified via OIDC.</p>
+<p>Create a user in <a href="https://www.supersaas.com/">SuperSaas</a> and login them in once identified via OIDC.</p>
+<ul>
+<li>Uses the official SuperSaaS Python library</li>
+<li>Tested with Keycloak 26</li>
+<li>Creates users in SuperSaaS after identifying them via Keycloak</li>
+<li>Forwards users to SuperSaaS once created</li>
+<li>Supports triggering a front-channel login in Keycloak</li>
+</ul>
+<p>The aim is to allow convenient onboarding for users with access to Keycloak, while still allowing
+additional cloud-managed users in SuperSaaS itself as needed.</p>
+<p>The application is delivered as a simple container images, containing a simple Starlette app that
+implements the business logic.</p>
+<p>It is strongly recommended that you deploy the service as SuperSaaS Me if you choose to run your own.</p>
+<h2 id="installation">Installation</h2>
+<p>Run the <code>ghcr.io/radiorabe/supersaasauthconnector:latest</code> in your preferred container runtime.</p>
+<p>Configuration is done via ENV variables.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>False</td>
+</tr>
+<tr>
+<td>SSO_SERVER_URL</td>
+<td>https://sso.rabe.ch/auth/</td>
+</tr>
+<tr>
+<td>SSO_REALM</td>
+<td>rabe</td>
+</tr>
+<tr>
+<td>SSO_CLIENT_ID</td>
+<td>supersaas-auth-connector</td>
+</tr>
+<tr>
+<td>ERROR_REDIRECT_URL</td>
+<td>https://www.rabe.ch</td>
+</tr>
+<tr>
+<td>LOGOUT_REDIRECT_URL</td>
+<td>https://sso.rabe.ch/auth/realms/rabe/protocol/openid-connect/logout?redirect_uri=https%3A%2F%2Fwww.rabe.ch</td>
+</tr>
+<tr>
+<td>SUPERSAAS_ACCOUNT_NAME</td>
+<td>RaBe</td>
+</tr>
+<tr>
+<td>SUPERSAAS_API_TOKEN</td>
+<td></td>
+</tr>
+<tr>
+<td>PORT</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>HOST</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://localhost:8000</td>
+</tr>
+<tr>
+<td>SECRET_KEY</td>
+<td>supersecretkey</td>
+</tr>
+</tbody>
+</table>
+<p>If you are not RaBe you will have to override most of these, if you are RaBe only some.</p>
+<p>On the Keycloak side the configuration is fairly trivial. The client needs to be public.
+We use the email claim from the jwt as well as an additional uid claim that you have to
+map in Keycloak. Other than that there are no special requirements and you are free to
+implement your own roles and scopes as required.</p>
+<h2 id="development">Development</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-mvenv<span class="w"> </span>venv
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>.<span class="w"> </span>venv/bin/activate
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>python<span class="w"> </span>-mpip<span class="w"> </span>install<span class="w"> </span>poetry
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>poetry<span class="w"> </span>install
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>poetry<span class="w"> </span>run<span class="w"> </span>pytest
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>ruff<span class="w"> </span>check
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>ruff<span class="w"> </span>format
+</code></pre></div>
+<h2 id="release-management">Release Management</h2>
+<p>The CI/CD setup uses semantic commit messages following the <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits standard</a>.
+The workflow is based on the <a href="https://radiorabe.github.io/actions/">RaBe shared actions</a>
+and uses <a href="https://go-semantic-release.xyz/">go-semantic-commit</a>
+to create new releases.</p>
+<p>The commit message should be structured as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;type&gt;[optional scope]: &lt;description&gt;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[optional body]
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[optional footer(s)]
+</code></pre></div>
+<p>The commit contains the following structural elements, to communicate intent to the consumers of your library:</p>
+<ol>
+<li><strong>fix:</strong> a commit of the type <code>fix</code> patches gets released with a PATCH version bump</li>
+<li><strong>feat:</strong> a commit of the type <code>feat</code> gets released as a MINOR version bump</li>
+<li><strong>BREAKING CHANGE:</strong> a commit that has a footer <code>BREAKING CHANGE:</code> gets released as a MAJOR version bump</li>
+<li>types other than <code>fix:</code> and <code>feat:</code> are allowed and don't trigger a release</li>
+</ol>
+<p>If a commit does not contain a conventional commit style message you can fix
+it during the squash and merge operation on the PR.</p>
+<h2 id="build-process">Build Process</h2>
+<p>The CI/CD setup uses <a href="https://github.com/docker/build-push-action">Docker build-push Action</a>
+to publish container images. The workflow is based on the <a href="https://radiorabe.github.io/actions/">RaBe shared actions</a>.</p>
+<h2 id="license">License</h2>
+<p>This application is free software: you can redistribute it and/or modify it under the terms of the GNU
+Affero General Public License as published by the Free Software Foundation, version 3 of the License.</p>
+<h1 id="copyright">Copyright</h1>
+<p>Copyright (c) 2025 - 2027 Radio Bern RaBe</p>
 
 
 
