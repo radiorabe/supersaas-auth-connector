@@ -97,6 +97,6 @@ to publish container images. The workflow is based on the [RaBe shared actions](
 This application is free software: you can redistribute it and/or modify it under the terms of the GNU
 Affero General Public License as published by the Free Software Foundation, version 3 of the License.
 
-# Copyright
+## Copyright
 
-Copyright (c) 2025 - 2027 Radio Bern RaBe
+Copyright (c) 2025 - 2026 Radio Bern RaBe
