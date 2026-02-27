@@ -4,7 +4,7 @@ metadata:
   name: supersaas-auth-connector
   title: SuperSaaS Auth Connector
   description: |
-    Bridge RaBe Accounts into SuperSaaS and create accounts in SuperSaas while doing so.
+    Bridge RaBe Accounts into SuperSaaS and create accounts in SuperSaaS while doing so.
   annotations:
      github.com/project-slug: radiorabe/supersaas-auth-connector
      backstage.io/techdocs-ref: dir:.

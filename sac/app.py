@@ -29,8 +29,8 @@ if TYPE_CHECKING:
 class _URIComponents(NamedTuple):
     scheme: str
     netloc: str
-    url: str
     path: str
+    params: str
     query: str
     fragment: str
 
@@ -60,9 +60,9 @@ def _generate_supersaas_login_url(name: str) -> str:
         _URIComponents(
             scheme="https",
             netloc="www.supersaas.com",
+            path="/api/login",
+            params="",
             query=urlencode(query_params),
-            path="",
-            url="/api/login",
             fragment="",
         )
     )
@@ -120,11 +120,7 @@ class _AuthenticationMiddleware(BaseHTTPMiddleware):
     async def _handle_next(
         self, request: Request, call_next: RequestResponseEndpoint
     ) -> Response:
-        try:
-            response = await call_next(request)
-        except BaseException as e:  # pragma: no cover
-            raise e from None
-        return response
+        return await call_next(request)
 
     def _auth(self) -> Response:
         return Response(
@@ -164,7 +160,7 @@ app = Starlette(
     ],
 )
 
-## Add auth middleware
+# Add auth middleware
 app.add_middleware(
     _AuthenticationMiddleware,
     kc=KeycloakOpenID(
@@ -173,7 +169,7 @@ app.add_middleware(
         realm_name=settings.SSO_REALM,
     ),
 )
-## Add context and session middlewares
+# Add context and session middlewares
 app.add_middleware(
     ContextMiddleware,
     plugins=(
@@ -186,7 +182,7 @@ app.add_middleware(SessionMiddleware, secret_key=str(settings.SECRET_KEY))
 
 def main() -> None:  # pragma: no cover
     """Run the application with Uvicorn."""
-    ## Configure SuperSaaS client
+    # Configure SuperSaaS client
     Client.configure(
         api_key=settings.SUPERSAAS_API_TOKEN,
         account_name=settings.SUPERSAAS_ACCOUNT_NAME,
