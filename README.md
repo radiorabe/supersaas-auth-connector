@@ -47,7 +47,7 @@ implement your own roles and scopes as required.
 ## Development
 
 ```bash
-python -mvenv .venv
+python -m venv .venv
 . .venv/bin/activate
 
 python -mpip install poetry
