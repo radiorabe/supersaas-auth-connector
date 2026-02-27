@@ -1,6 +1,0 @@
-#!/home/runner/work/supersaas-auth-connector/supersaas-auth-connector/venv/bin/python
-import sys
-from sac.app import main
-
-if __name__ == '__main__':
-    sys.exit(main())

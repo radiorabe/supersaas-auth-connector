@@ -1,6 +1,6 @@
 # SuperSaaS Auth Connector
 
-Create a user in [SuperSaas](https://www.supersaas.com/) and login them in once identified via OIDC.
+Create a user in [SuperSaaS](https://www.supersaas.com/) and login them in once identified via OIDC.
 
 * Uses the official SuperSaaS Python library
 * Tested with Keycloak 26
