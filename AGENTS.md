@@ -21,7 +21,7 @@ Key dependencies:
 ## Development Setup
 
 ```bash
-python -mvenv .venv
+python -m venv .venv
 . .venv/bin/activate
 python -mpip install poetry
 poetry install
