@@ -44,7 +44,6 @@
 }
 
 .tx-hero__content {
-  flex: 1 1 0;
   color: #fff;
 }
 
@@ -93,25 +92,6 @@
   background-color: rgba(255,255,255,.12);
 }
 
-.tx-hero__image {
-  flex: 0 0 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tx-hero__image svg {
-  width: 200px;
-  height: 200px;
-  filter: drop-shadow(0 4px 20px rgba(0,0,0,.18));
-}
-
-@media screen and (max-width: 60em) {
-  .tx-hero__image {
-    display: none;
-  }
-}
-
 /* ───────────────────────────────────────────────────
    Feature grid (home page)
 ─────────────────────────────────────────────────── */
@@ -157,3 +137,4 @@
   margin: 0;
   color: var(--md-default-fg-color--light);
 }
+

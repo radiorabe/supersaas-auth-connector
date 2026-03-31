@@ -1,0 +1,22 @@
+# SuperSaaS Auth Connector
+
+SuperSaaS Auth Connector bridges Keycloak OIDC authentication with SuperSaaS user
+management. It is a small Starlette application delivered as a container image.
+When a user authenticates via Keycloak, the connector creates a corresponding user
+account in SuperSaaS (if it does not already exist) and then forwards the user
+directly into SuperSaaS via the SuperSaaS login API.
+
+## Guide
+
+- [Getting Started](https://radiorabe.github.io/supersaas-auth-connector/getting-started/)
+- [Configuration](https://radiorabe.github.io/supersaas-auth-connector/configuration/)
+- [Architecture](https://radiorabe.github.io/supersaas-auth-connector/architecture/)
+
+## Development
+
+- [Development](https://radiorabe.github.io/supersaas-auth-connector/development/)
+- [Contributing](https://radiorabe.github.io/supersaas-auth-connector/contributing/)
+
+## Reference
+
+- [API Reference](https://radiorabe.github.io/supersaas-auth-connector/reference/)

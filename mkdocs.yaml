@@ -54,7 +54,11 @@ markdown_extensions:
     anchor_linenums: true
 - pymdownx.inlinehilite
 - pymdownx.snippets
-- pymdownx.superfences
+- pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
 
 extra_css:
 - css/style.css
@@ -76,23 +80,6 @@ plugins:
         options:
           show_source: true
           show_root_heading: true
-- llmstxt:
-    markdown_description: |
-      SuperSaaS Auth Connector bridges Keycloak OIDC authentication with SuperSaaS user
-      management. It is a small Starlette application delivered as a container image.
-      When a user authenticates via Keycloak, the connector creates a corresponding
-      user account in SuperSaaS (if it does not already exist) and then forwards the
-      user directly into SuperSaaS via the SuperSaaS login API.
-    sections:
-      Guide:
-        - getting-started.md
-        - configuration.md
-        - architecture.md
-      Development:
-        - development.md
-        - contributing.md
-      Reference:
-        - reference/index.md
 
 nav:
   - Home: index.md

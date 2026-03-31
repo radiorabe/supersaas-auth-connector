@@ -8,25 +8,27 @@ SuperSaaS scheduling interface.
 
 ## Request Flow
 
-```
-Browser
-  │
-  │  GET /  (or any path)
-  ▼
-SuperSaaS Auth Connector  ──── no session token? ────▶  Keycloak /auth
-  │                                                          │
-  │  ◀─────── redirect with ?code=… ──────────────────────────
-  │
-  │  POST /oidc/callback  (exchange code → access token)
-  │  GET  /userinfo       (fetch email + uid claims)
-  │
-  ▼
-/supersaas handler
-  │  ├─ Create user in SuperSaaS (idempotent – silently ignored if exists)
-  │  └─ Build signed login URL → redirect
-  │
-  ▼
-SuperSaaS  (user is now logged in)
+```mermaid
+sequenceDiagram
+    actor Browser
+    participant Connector as SuperSaaS Auth Connector
+    participant Keycloak
+    participant SuperSaaS
+
+    Browser->>Connector: GET / (any path)
+    alt no session token
+        Connector->>Keycloak: redirect to /auth
+        Keycloak-->>Browser: login page
+        Browser->>Keycloak: submit credentials
+        Keycloak-->>Connector: redirect /oidc/callback?code=…
+    end
+    Connector->>Keycloak: POST token endpoint (code exchange)
+    Keycloak-->>Connector: access_token
+    Connector->>Keycloak: GET /userinfo
+    Keycloak-->>Connector: email + uid claims
+    Connector->>SuperSaaS: create user (idempotent)
+    Connector-->>Browser: redirect to SuperSaaS login URL
+    Browser->>SuperSaaS: follow redirect (user logged in)
 ```
 
 ## Routes
