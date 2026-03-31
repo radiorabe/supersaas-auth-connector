@@ -2,6 +2,8 @@
 
 Create a user in [SuperSaaS](https://www.supersaas.com/) and login them in once identified via OIDC.
 
+📖 **Full documentation: [radiorabe.github.io/supersaas-auth-connector](https://radiorabe.github.io/supersaas-auth-connector/)**
+
 * Uses the official SuperSaaS Python library
 * Tested with Keycloak 26
 * Creates users in SuperSaaS after identifying them via Keycloak

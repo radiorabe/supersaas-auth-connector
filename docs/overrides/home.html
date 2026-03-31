@@ -1,0 +1,122 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+
+  <section class="tx-hero">
+    <div class="md-grid md-typeset">
+      <div class="tx-hero__content">
+        <h1>🔑 SuperSaaS Auth Connector</h1>
+        <p>
+          Bridge Keycloak OIDC authentication with SuperSaaS user management.<br>
+          Zero-friction onboarding — users are created automatically and dropped
+          straight into SuperSaaS.
+        </p>
+        <a
+          href="{{ 'getting-started/' | url }}"
+          title="Getting Started"
+          class="md-button md-button--primary"
+        >
+          Get started
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align:middle;margin-left:.4em"><path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+        </a>
+        <a
+          href="{{ 'configuration/' | url }}"
+          title="Configuration Reference"
+          class="md-button"
+        >
+          Configuration
+        </a>
+      </div>
+      <div class="tx-hero__image">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" aria-hidden="true">
+          <circle cx="256" cy="256" r="240" fill="var(--md-primary-fg-color)" opacity=".08"/>
+          <circle cx="256" cy="256" r="170" fill="var(--md-primary-fg-color)" opacity=".06"/>
+          <circle cx="256" cy="256" r="100" fill="var(--md-primary-fg-color)" opacity=".10"/>
+          <!-- Key body -->
+          <circle cx="200" cy="210" r="58" stroke="var(--md-primary-fg-color)" stroke-width="20" fill="none"/>
+          <rect x="240" y="200" width="120" height="20" rx="6" fill="var(--md-primary-fg-color)"/>
+          <rect x="332" y="220" width="20" height="30" rx="4" fill="var(--md-primary-fg-color)"/>
+          <rect x="302" y="220" width="20" height="22" rx="4" fill="var(--md-primary-fg-color)"/>
+          <!-- Arrow down: Keycloak → Connector → SuperSaaS -->
+          <line x1="256" y1="290" x2="256" y2="340" stroke="var(--md-primary-fg-color)" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+          <polygon points="256,360 242,338 270,338" fill="var(--md-primary-fg-color)" opacity=".7"/>
+          <!-- SuperSaaS box hint -->
+          <rect x="196" y="365" width="120" height="52" rx="8" fill="var(--md-primary-fg-color)" opacity=".20"/>
+          <line x1="214" y1="383" x2="298" y2="383" stroke="var(--md-primary-fg-color)" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+          <line x1="214" y1="399" x2="278" y2="399" stroke="var(--md-primary-fg-color)" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+  <section class="tx-features">
+    <div class="md-grid">
+      <div class="tx-features__grid md-typeset">
+
+        <div class="tx-feature">
+          <div class="tx-feature__icon">🪪</div>
+          <h2>Keycloak OIDC</h2>
+          <p>
+            Authenticates users via <strong>Keycloak</strong> using the standard
+            OpenID Connect authorization-code flow — no custom SSO plumbing
+            required.
+          </p>
+        </div>
+
+        <div class="tx-feature">
+          <div class="tx-feature__icon">👤</div>
+          <h2>Automatic User Provisioning</h2>
+          <p>
+            On first login the connector creates a matching account in
+            <strong>SuperSaaS</strong> using the official Python API client, then
+            forwards the user transparently.
+          </p>
+        </div>
+
+        <div class="tx-feature">
+          <div class="tx-feature__icon">🐳</div>
+          <h2>Container-Ready</h2>
+          <p>
+            Delivered as a single container image published to
+            <strong>GitHub Packages</strong>. Drop it into any container runtime
+            and configure via environment variables.
+          </p>
+        </div>
+
+        <div class="tx-feature">
+          <div class="tx-feature__icon">🔒</div>
+          <h2>Session Security</h2>
+          <p>
+            Tokens are stored in a server-side signed session. Supports
+            <strong>front-channel logout</strong> back to Keycloak with a
+            single redirect.
+          </p>
+        </div>
+
+        <div class="tx-feature">
+          <div class="tx-feature__icon">⚙️</div>
+          <h2>Twelve-Factor Config</h2>
+          <p>
+            Every tuneable — SSO realm, API token, redirect URLs — is driven by
+            <strong>environment variables</strong> with sensible RaBe defaults
+            that are easy to override.
+          </p>
+        </div>
+
+        <div class="tx-feature">
+          <div class="tx-feature__icon">🧪</div>
+          <h2>100 % Test Coverage</h2>
+          <p>
+            The entire codebase is covered by an integration test suite using
+            <strong>pytest</strong> with mypy strict-mode type checking and
+            ruff linting baked in.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endblock %}
