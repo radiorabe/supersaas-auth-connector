@@ -9,24 +9,28 @@
       
       
       
+        <link rel="prev" href="../configuration/">
+      
+      
+        <link rel="next" href="../development/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>SuperSaaS Auth Connector</title>
+        <title>Architecture - SuperSaaS Auth Connector</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,11 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="../css/style.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#architecture" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="SuperSaaS Auth Connector" class="md-header__button md-logo" aria-label="SuperSaaS Auth Connector" data-md-component="logo">
+    <a href=".." title="SuperSaaS Auth Connector" class="md-header__button md-logo" aria-label="SuperSaaS Auth Connector" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.85.53-1.58 1.28-1.87L15.71 1l.76 1.83L8.83 6zm0 2H4v4h12v-2h2v2h2zM7 14a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3"/></svg>
@@ -103,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Architecture
             
           </span>
         </div>
@@ -221,7 +230,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -240,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/getting-started/" class="md-tabs__link">
+      <a href="../getting-started/" class="md-tabs__link">
         
   
   
@@ -259,7 +268,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/configuration/" class="md-tabs__link">
+      <a href="../configuration/" class="md-tabs__link">
         
   
   
@@ -276,9 +285,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="/architecture/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -297,7 +308,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/development/" class="md-tabs__link">
+      <a href="../development/" class="md-tabs__link">
         
   
   
@@ -316,7 +327,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/contributing/" class="md-tabs__link">
+      <a href="../contributing/" class="md-tabs__link">
         
   
   
@@ -335,7 +346,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/reference/" class="md-tabs__link">
+      <a href="../reference/" class="md-tabs__link">
         
   
   
@@ -370,7 +381,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="SuperSaaS Auth Connector" class="md-nav__button md-logo" aria-label="SuperSaaS Auth Connector" data-md-component="logo">
+    <a href=".." title="SuperSaaS Auth Connector" class="md-nav__button md-logo" aria-label="SuperSaaS Auth Connector" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.85.53-1.58 1.28-1.87L15.71 1l.76 1.83L8.83 6zm0 2H4v4h12v-2h2v2h2zM7 14a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3"/></svg>
@@ -400,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -427,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -454,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -478,10 +489,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -497,6 +535,109 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Middleware Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Middleware Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_authenticationmiddleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _AuthenticationMiddleware
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supersaas-login-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SuperSaaS Login URL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -508,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../development/" class="md-nav__link">
         
   
   
@@ -535,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/contributing/" class="md-nav__link">
+      <a href="../contributing/" class="md-nav__link">
         
   
   
@@ -562,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/" class="md-nav__link">
+      <a href="../reference/" class="md-nav__link">
         
   
   
@@ -599,6 +740,99 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Middleware Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Middleware Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_authenticationmiddleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _AuthenticationMiddleware
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supersaas-login-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SuperSaaS Login URL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -611,8 +845,160 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
+<p>SuperSaaS Auth Connector is a small <a href="https://www.starlette.io/">Starlette</a> ASGI application
+that sits between <a href="https://www.keycloak.org/">Keycloak</a> and
+<a href="https://www.supersaas.com/">SuperSaaS</a>. It handles the OpenID Connect authorization-code
+flow, provisions users in SuperSaaS on first login, and then forwards them directly into the
+SuperSaaS scheduling interface.</p>
+<h2 id="request-flow">Request Flow<a class="headerlink" href="#request-flow" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>sequenceDiagram
+    actor Browser
+    participant Connector as SuperSaaS Auth Connector
+    participant Keycloak
+    participant SuperSaaS
+
+    Browser-&gt;&gt;Connector: GET / (any path)
+    alt no session token
+        Connector-&gt;&gt;Keycloak: redirect to /auth
+        Keycloak--&gt;&gt;Browser: login page
+        Browser-&gt;&gt;Keycloak: submit credentials
+        Keycloak--&gt;&gt;Connector: redirect /oidc/callback?code=…
+    end
+    Connector-&gt;&gt;Keycloak: POST token endpoint (code exchange)
+    Keycloak--&gt;&gt;Connector: access_token
+    Connector-&gt;&gt;Keycloak: GET /userinfo
+    Keycloak--&gt;&gt;Connector: email + uid claims
+    Connector-&gt;&gt;SuperSaaS: create user (idempotent)
+    Connector--&gt;&gt;Browser: redirect to SuperSaaS login URL
+    Browser-&gt;&gt;SuperSaaS: follow redirect (user logged in)</code></pre>
+<h2 id="routes">Routes<a class="headerlink" href="#routes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Handler</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td><code>catchall_page</code></td>
+<td>Catch-all; redirects to <code>/supersaas</code></td>
+</tr>
+<tr>
+<td><code>/oidc/callback</code></td>
+<td><code>catchall_page</code></td>
+<td>OIDC callback; middleware exchanges code for token, then redirects to <code>/supersaas</code></td>
+</tr>
+<tr>
+<td><code>/supersaas</code></td>
+<td><code>supersaas_redirect</code></td>
+<td>Creates user in SuperSaaS and redirects to the SuperSaaS login URL</td>
+</tr>
+<tr>
+<td><code>/logout</code></td>
+<td><code>logout_redirect</code></td>
+<td>Front-channel logout via Keycloak logout URL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="middleware-stack">Middleware Stack<a class="headerlink" href="#middleware-stack" title="Permanent link">&para;</a></h2>
+<p>Middlewares are applied in reverse order (outermost first at runtime):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SessionMiddleware          – signs and verifies the session cookie
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  └─ ContextMiddleware     – attaches RequestId and CorrelationId to the request context
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>       └─ _AuthenticationMiddleware  – OIDC token exchange and userinfo fetch
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            └─ Starlette routing     – route handlers
+</code></pre></div>
+<h3 id="_authenticationmiddleware"><code>_AuthenticationMiddleware</code><a class="headerlink" href="#_authenticationmiddleware" title="Permanent link">&para;</a></h3>
+<p>This is the core of the application. For every incoming request it:</p>
+<ol>
+<li><strong>Checks for an OIDC error</strong> in the query string → redirects to <code>ERROR_REDIRECT_URL</code>.</li>
+<li><strong>On <code>/oidc/callback</code></strong>: exchanges the <code>code</code> query parameter for an access token via
+   Keycloak's token endpoint and stores it in the session.</li>
+<li><strong>Fetches userinfo</strong> from Keycloak using the access token, populating
+   <code>request.state.user</code> with at minimum <code>email</code> and <code>uid</code> claims.</li>
+<li><strong>On <code>/logout</code></strong>: skips userinfo fetch and lets the route handler redirect to Keycloak.</li>
+<li><strong>No token</strong>: redirects to Keycloak's authorization endpoint to start a new login.</li>
+</ol>
+<h2 id="supersaas-login-url">SuperSaaS Login URL<a class="headerlink" href="#supersaas-login-url" title="Permanent link">&para;</a></h2>
+<p>The <code>/supersaas</code> handler generates a signed SuperSaaS login URL using an MD5 checksum of
+the account name, API token, and username:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://www.supersaas.com/api/login
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ?account=&lt;SUPERSAAS_ACCOUNT_NAME&gt;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  &amp;user[name]=&lt;email&gt;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  &amp;checksum=&lt;md5(account+token+email)&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MD5 checksum is mandated by the
+<a href="https://www.supersaas.com/info/dev/user_api#login">SuperSaaS login API specification</a>.
+It is used solely as a lightweight API authentication token, not as a general-purpose
+cryptographic hash; the choice of algorithm is not within our control.</p>
+</div>
+<p>The <code>email</code> claim from Keycloak is used as the SuperSaaS username, and the <code>uid</code> claim
+(with an <code>fk</code> suffix) is used as the SuperSaaS foreign key when the user is first created.</p>
+<h2 id="container-image">Container Image<a class="headerlink" href="#container-image" title="Permanent link">&para;</a></h2>
+<p>The application is packaged as a minimal container image and published to
+<a href="https://github.com/radiorabe/supersaas-auth-connector/pkgs/container/supersaasauthconnector">GitHub Packages</a>.
+The entry point runs <a href="https://www.uvicorn.org/">Uvicorn</a> with the host set to <code>0.0.0.0</code> and
+the port set by the <code>PORT</code> environment variable.</p>
+<h2 id="key-dependencies">Key Dependencies<a class="headerlink" href="#key-dependencies" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.starlette.io/"><code>starlette</code></a></td>
+<td>ASGI framework, routing, middleware, sessions</td>
+</tr>
+<tr>
+<td><a href="https://www.uvicorn.org/"><code>uvicorn</code></a></td>
+<td>ASGI server</td>
+</tr>
+<tr>
+<td><a href="https://python-keycloak.readthedocs.io/"><code>python-keycloak</code></a></td>
+<td>Keycloak OIDC client (token exchange, userinfo)</td>
+</tr>
+<tr>
+<td><a href="https://pypi.org/project/supersaas-api-client/"><code>supersaas-api-client</code></a></td>
+<td>SuperSaaS REST API client</td>
+</tr>
+<tr>
+<td><a href="https://starlette-context.readthedocs.io/"><code>starlette-context</code></a></td>
+<td>Per-request context storage (request/correlation IDs)</td>
+</tr>
+<tr>
+<td><a href="https://itsdangerous.palletsprojects.com/"><code>itsdangerous</code></a></td>
+<td>Signed session cookie support</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -630,6 +1016,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../configuration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../development/" class="md-footer__link md-footer__link--next" aria-label="Next: Development">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Development
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -665,10 +1089,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["content.code.annotate", "content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
