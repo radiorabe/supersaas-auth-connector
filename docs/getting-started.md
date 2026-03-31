@@ -17,7 +17,7 @@ This guide walks you through deploying the connector for the first time.
 Pull and run the latest image:
 
 ```bash
-docker run --rm \
+podman run --rm \
   -e SSO_SERVER_URL=https://sso.example.com/auth/ \
   -e SSO_REALM=myrealm \
   -e SSO_CLIENT_ID=supersaas-auth-connector \
