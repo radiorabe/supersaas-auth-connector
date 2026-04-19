@@ -9,11 +9,11 @@ on:
 
 jobs:
   release-container:
-    uses: radiorabe/actions/.github/workflows/release-container.yaml@479996126a091287dc3fd349786f6f8a6dd1b23c # v0.42.0
+    uses: radiorabe/actions/.github/workflows/release-container.yaml@5459c6e6550bcc6969303a65ef6c44bb1cd0ccf1 # v0.43.2
     with:
       image: 'ghcr.io/radiorabe/supersaasauthconnector'
       name: 'supersaasauthconnector'
       display-name: 'SuperSaaS Auth Connector'
       tags: 'minimal rhel9 rabe s2i python supersaas oidc'
   release-mkdocs:
-    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@479996126a091287dc3fd349786f6f8a6dd1b23c # v0.42.0
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@5459c6e6550bcc6969303a65ef6c44bb1cd0ccf1 # v0.43.2
