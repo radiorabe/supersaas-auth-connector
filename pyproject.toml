@@ -39,7 +39,7 @@ mkdocs = ">=1.6,<2.0"
 mkdocs-material = ">=9.0"
 mkdocs-section-index = ">=0.3"
 mkdocs-autorefs = ">=1.0"
-mkdocstrings = {version = ">=0.25", extras = ["python"]}
+mkdocstrings = {version = ">=1.0.4", extras = ["python"]}
 
 [tool.pytest.ini_options]
 addopts = "-ra -q --random-order --doctest-glob='*.md' --doctest-modules --cov=sac --cov-fail-under=100 --ruff --mypy --ignore docs/"
